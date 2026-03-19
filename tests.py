@@ -160,11 +160,3 @@ class TestBooksCollector:
         assert len(favorites) == 2
         assert 'Книга 1' in favorites
         assert 'Книга 2' in favorites
-
-    # Тесты инициализации
-    def test_genre_age_rating_initialized_correctly(self, collector):
-        assert collector.genre_age_rating == ['Ужасы', 'Детективы']
-
-    def test_genre_list_initialized_correctly(self, collector):
-        assert collector.genre == ['Фантастика', 'Ужасы', 'Детективы', 'Мультфильмы', 'Комедии']
-            

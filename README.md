@@ -93,35 +93,12 @@
 | 30 | `test_get_list_of_favorites_books_with_one_book` | Получение списка с одной книгой | Список содержит 1 книгу |
 | 31 | `test_get_list_of_favorites_books_with_multiple_books` | Получение списка с несколькими книгами | Список содержит все добавленные книги |
 
-### Группа 8: Тестирование инициализации (2 теста)
 
-| № | Название теста | Что проверяет | Ожидаемый результат |
-|---|----------------|----------------|---------------------|
-| 32 | `test_genre_age_rating_initialized_correctly` | Проверка списка возрастных ограничений | `['Ужасы', 'Детективы']` |
-| 33 | `test_genre_list_initialized_correctly` | Проверка списка доступных жанров | `['Фантастика', 'Ужасы', 'Детективы', 'Мультфильмы', 'Комедии']` |
 
 ---
 
 ### Тест 1: Невалидные значения длины названия
-```python
-@pytest.mark.parametrize('invalid_name', [
-    '',                                   # пустая строка
-    'А' * 41,                             # больше 40 символов
-    'А' * 100,                             # значительно больше 40
-])
-def test_add_new_book_with_invalid_length_not_added(self, collector, invalid_name):
-    collector.add_new_book(invalid_name)
-    assert len(collector.get_books_genre()) == 0
+test_add_new_book_with_invalid_length_not_added
 ### Тест 2: Валидные значения длины названия (граничные значения)
-```python
-@pytest.mark.parametrize('valid_name', [
-    'А',                                   # минимальная длина (1 символ)
-    'А' * 20,                               # средняя длина
-    'А' * 40,                               # максимальная длина
-    'Книга с пробелами и знаками препинания!',  # обычное название
-])
-def test_add_new_book_with_valid_length_added(self, collector, valid_name):
-    collector.add_new_book(valid_name)
-    assert len(collector.get_books_genre()) == 1
-    assert valid_name in collector.get_books_genre()
+test_add_new_book_with_valid_length_added
     
